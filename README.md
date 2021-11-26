@@ -1,2 +1,17 @@
-# university_man_system
-A software project
+# University Management System
+General Information:
+
+Author: Bui Nguyen Mai Truc (ID: 13013) & Bui Le Phi Long (ID: 16619)  
+Build with Java (Spring Boot) & PostgresSQL.
+Instructor: Dr. Ngoc Tran Hong
+---
+## Code Structure
+
+Applying design from RealWorld: the core project will be placed inside `src/`, functioning as follow:
+1. `University_main.java`: the main application file.
+2. `domain/`: storing the folders, each represent a class. 
+3. `application/`: API for accessing the application. Might terminate if exceeding the project's scope.
+4. `resources/`: storing SQL schemas and database-related resources.
+
+---
+## Application UML

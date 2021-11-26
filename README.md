@@ -3,7 +3,8 @@ General Information:
 
 1.Author: Bui Nguyen Mai Truc (ID: 13013) & Bui Le Phi Long (ID: 16619)  
 2.Build with Java (Spring Boot) & PostgresSQL.
-3.Instructor: Dr. Ngoc Tran Hong
+3. Instructor: Dr. Ngoc Tran Hong
+
 ---
 ## Code Structure
 

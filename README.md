@@ -16,7 +16,8 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 
 ---
 ## Applicaion's Usecase diagram
-![university](https://user-images.githubusercontent.com/80462415/143552490-a46a4118-6d72-4e9c-b219-1d68a328b686.png)
+![university](https://user-images.githubusercontent.com/80462415/143801829-f51dcf8c-fcb8-489f-bb8f-3e96fadd40d1.png)
+
 
 ---
 ## Application UML

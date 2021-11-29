@@ -16,7 +16,8 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 
 ---
 ## Application's Usecase diagram
-![university](https://user-images.githubusercontent.com/80462415/143801829-f51dcf8c-fcb8-489f-bb8f-3e96fadd40d1.png)
+![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
+
 
 
 ---
@@ -24,4 +25,7 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 ---
 ## Relational mappings
 ![re_map_university](https://user-images.githubusercontent.com/80462415/143801953-a6a76720-ffdd-446b-924e-0883ca6a7b32.png)
+---
+## Applicatio's Activity diagram
+![java-activity-diagram](https://user-images.githubusercontent.com/80462415/143812548-2c4eb2e1-f106-42c8-bc53-92b12af4d19d.png)
 

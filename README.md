@@ -15,7 +15,7 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 4. `resources/`: storing SQL schemas and database-related resources.
 
 ---
-## Applicaion's Usecase diagram
+## Application's Usecase diagram
 ![university](https://user-images.githubusercontent.com/80462415/143801829-f51dcf8c-fcb8-489f-bb8f-3e96fadd40d1.png)
 
 

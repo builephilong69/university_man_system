@@ -22,7 +22,8 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 
 ---
 ## Class Diagram
-![class_diagram](https://user-images.githubusercontent.com/80462415/144837811-60bf0ab6-abd2-4537-ad9f-947b05d94b17.png)
+![image](https://user-images.githubusercontent.com/80462415/144837921-93ca2700-fa59-4faa-8c22-be25764f6dcf.png)
+
 
 ---
 ## Relational mappings

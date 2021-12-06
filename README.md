@@ -21,7 +21,9 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 
 
 ---
-## Application UML
+## Class Diagram
+![class_diagram](https://user-images.githubusercontent.com/80462415/144837811-60bf0ab6-abd2-4537-ad9f-947b05d94b17.png)
+
 ---
 ## Relational mappings
 ![re_map_university](https://user-images.githubusercontent.com/80462415/143801953-a6a76720-ffdd-446b-924e-0883ca6a7b32.png)

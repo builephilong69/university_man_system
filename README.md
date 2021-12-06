@@ -13,18 +13,12 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 2. `domain/`: storing the folders, each represent a class. 
 3. `application/`: API for accessing the application. Might terminate if exceeding the project's scope.
 4. `resources/`: storing SQL schemas and database-related resources.
-
----
-## Application's Usecase diagram
-![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
-
-
-
 ---
 ## Class Diagram
 ![image](https://user-images.githubusercontent.com/80462415/144837921-93ca2700-fa59-4faa-8c22-be25764f6dcf.png)
-
-
+---
+## Application's Usecase diagram
+![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
 ---
 ## Relational mappings
 ![re_map_university](https://user-images.githubusercontent.com/80462415/143801953-a6a76720-ffdd-446b-924e-0883ca6a7b32.png)

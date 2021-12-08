@@ -21,9 +21,10 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 ![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
 ---
 ## Relational mappings
-![re_map_university](https://user-images.githubusercontent.com/80462415/143801953-a6a76720-ffdd-446b-924e-0883ca6a7b32.png)
+![gradeSystemDBSchemaOverview](https://user-images.githubusercontent.com/33834474/145151507-f9a964d9-34ba-4c11-a1f2-383793f8a57d.png)
 ---
 ## Application's Activity diagram
 ![java-activity-diagram](https://user-images.githubusercontent.com/80462415/143812548-2c4eb2e1-f106-42c8-bc53-92b12af4d19d.png)
+
 
 

@@ -1,7 +1,7 @@
 package USER;
 import java.util.Date;
 
-public class Personal_information {
+protected class Personal_information {
     // data attributes
     private String name;
     private String role;
@@ -9,7 +9,7 @@ public class Personal_information {
     private String placeOfBirth;
     private String ssn;
     // constructors
-    public Personal_information(String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
+    protected Personal_information(String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
         this.name = name;
         this.role = role;
         this.dateOfBirth = dateOfBirth;

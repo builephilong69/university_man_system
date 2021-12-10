@@ -1,26 +1,34 @@
 /***
- * An instances of this class represent a final result of a student in a course
+ * An instance of this class represent a final grade of all courses of a particular student  
  */
-package GradeUtility;
+package GradeUtilities;
 
-class Grade {
-	// data attributes
+import java.util.*;
+import sqlDBConnection.GradeDBUtilities;
+
+public class Record {
+	// data member
 	private String student_id;
-	private	String course_id;
-	private float grade;
+	private Hashtable<String, Float> record;
+	
 	// constructor
-	Grade(String st_id, String co_id, float gr){
-		// checking conditions to be added
-		student_id = st_id;
-		course_id = co_id;
-		grade = gr;
+	public Record (String student_id){
+		this.student_id = student_id;
+		GradeDBUtilities dbconnector = new GradeDBUtilities();
+		dbconnector.connect();
+		record = dbconnector.getRecord(student_id);
+		dbconnector.disconnect();
 	}
+	
 	// methods
 	/***
 	 * @param none
 	 * @return none; print to the console
 	 */
 	public void printRecord() {
-		// to be added later
+		System.out.println("Record of student " + student_id);
+		for(Map.Entry<String, Float> entry: record.entrySet()){
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
 	}
 }

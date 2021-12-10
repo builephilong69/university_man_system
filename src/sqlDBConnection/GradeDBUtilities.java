@@ -1,6 +1,6 @@
 /***
  * Instance of this class provides functions relating to the database queries
- * for intended clients which are instances of classes in GradeUtitlitie
+ * for intended clients which are instances of classes in GradeUtilities
  */
 package sqlDBConnection;
 

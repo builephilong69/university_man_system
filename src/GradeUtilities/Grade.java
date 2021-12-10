@@ -1,7 +1,7 @@
 /***
  * An instances of this class represent a final result of a student in a course
  */
-package GradeUtility;
+package GradeUtilities;
 
 import sqlDBConnection.GradeDBUtilities;
 

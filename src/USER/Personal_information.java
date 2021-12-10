@@ -1,20 +1,34 @@
 package USER;
-import java.util.Date;
 
-protected class Personal_information {
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Hashtable;
+import sqlDBConnection.UserDBUtilities;
+
+class PersonalInformation {
     // data attributes
-    private String name;
+    private String full_name;
     private String role;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
     private String placeOfBirth;
     private String ssn;
     // constructors
-    protected Personal_information(String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
-        this.name = name;
-        this.role = role;
-        this.dateOfBirth = dateOfBirth;
-        this.placeOfBirth = placeOfBirth;
-        this.ssn = ssn;
+    protected PersonalInformation(String username) {
+    	UserDBUtilities dbconnector = new UserDBUtilities();
+		dbconnector.connect();
+		Hashtable<String, String> info = dbconnector.getPersonalInfo(username);
+		this.full_name = info.get("Full name");
+        this.role = info.get("Role");
+        if (info.get("Date of birth") != "unknown") {
+        	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        	String infoDOB = info.get("Date of birth");
+        	this.dateOfBirth = LocalDate.parse(infoDOB, formatter);
+        } else {
+        	dateOfBirth = LocalDate.of(0, 1, 1); // set to default
+        }
+        this.placeOfBirth = info.get("Place of birth");
+        this.ssn = info.get("SSN");
+		dbconnector.disconnect();
     }
     //methods
     /***
@@ -23,14 +37,14 @@ protected class Personal_information {
 	 */
     protected String getFullName()
     {
-        return this.name;
+        return this.full_name;
     }
 
     /***
 	 * @param none
 	 * @return Date of birth 
 	 */
-    protected Date getDateOfBirth()
+    protected LocalDate getDateOfBirth()
     {
         return this.dateOfBirth;
     }
@@ -43,6 +57,18 @@ protected class Personal_information {
     {
         return this.placeOfBirth;
     }
-
-    
+    /***
+	 * @param none
+	 * @return role
+	 */
+    protected String getRole() {
+    	return this.role;
+    }
+    /***
+	 * @param none
+	 * @return ssn
+	 */
+    protected String getSSN() {
+    	return this.ssn;
+    }
 }

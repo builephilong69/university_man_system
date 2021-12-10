@@ -24,11 +24,11 @@ public class UserDBUtilities extends DBConnector{
     		results.next();
     		String full_name = results.getString("full_name");
     		// additional checking for ssn, date_of-birth, place_of_birth since in the DB they can be null
-    		String ssn = "unknow";
+    		String ssn = "unknown";
     		if (results.getString("ssn") != null) {
     			ssn = results.getString("ssn");
     		}
-    		String date_of_birth = "unknow";
+    		String date_of_birth = "unknown";
     		if (results.getDate("date_of_birth") != null) {
     			date_of_birth = results.getDate("date_of_birth").toString();
     		}

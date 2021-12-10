@@ -2,25 +2,35 @@
  * An instance of this class represent the final results of all students in a particular course.
  * Methods are provided to the client of this class to show some statistics of the results. 
  */
-package GradeUtility;
+package GradeUtilities;
+
+import java.util.*;
+import sqlDBConnection.GradeDBUtilities;
 
 public class Course {
 	// data attributes
 	private String course_id;
-	private String course_name;
-	private String program;
-	private String lecturer_name;
-	private String semester;
-	Grade[] gradeList;
+	private Hashtable<String, String> courseInfo;
+	private Hashtable<String, Float> gradesList;
+	private int numStudents;
+	private ArrayList<Float> gradeValsList; // for computing some statistics of the course's grades, no need to link to student id 
+	
 	// constructor
-	Course(String c_id, String c_name, String prog, String ltr_name, String sem, Grade[] glist){
+	public Course(String course_id){
 		// checking conditions to be added
-		course_id = c_id;
-		course_name = c_name;
-		program = prog;
-		lecturer_name = ltr_name;
-		semester = sem;
-		System.arraycopy(glist, 0, gradeList, 0, gradeList.length);
+		this.course_id = course_id;
+		GradeDBUtilities dbconnector = new GradeDBUtilities();
+		dbconnector.connect();
+		
+		courseInfo = dbconnector.getCourseOverallInfo(course_id);
+		gradesList = dbconnector.getGradesList(course_id);
+		numStudents = gradesList.size();
+		gradeValsList = new ArrayList<Float>(numStudents);
+		for(Map.Entry<String, Float> entry: gradesList.entrySet()){
+			gradeValsList.add(entry.getValue());
+		}
+		gradeValsList.sort((Float x, Float y) -> x.compareTo(y)); // lamda function pass as argument
+		dbconnector.disconnect();
 	}
 	// methods
 	/***
@@ -28,72 +38,90 @@ public class Course {
 	 * @return Course ID
 	 */
 	public String getCourseID() {
-		// to be added later
-		return "";
+		return course_id;
 	}
 	/***
 	 * @param none
 	 * @return List of Student IDs
 	 */
-	public String[] getStudentsList() {
-		// to be added later
-		String studentList[] = {""};
-		return studentList;
+	public ArrayList<String> getStudentsList() {
+		ArrayList<String> studentsList = new ArrayList<String>();
+		for(Map.Entry<String, Float> entry: gradesList.entrySet()){
+			studentsList.add(entry.getKey());
+		}
+		return studentsList;
 	}
 	/***
 	 * @param none
 	 * @return Course overall information
 	 */
 	public String getCourseInfo() {
-		// to be added later
-		return "";
+		return courseInfo.toString();
 	}
 	/***
 	 * @param none
 	 * @return Number of students taking the exam for this course
 	 */
-	public int getNumStudent() {
-		// to be added later
-		return 0;
+	public int getNumStudents() {
+		return numStudents;
 	}
+	
+	
 	/***
 	 * @param none
 	 * @return Minimum grade value
 	 */
 	public float getMinGrade() {
-		// to be added later
-		return 0;
+		float minVal = gradeValsList.get(0); // first in the sorted gradeValsList
+		return minVal;
 	}
 	/***
 	 * @param none
 	 * @return Maximum grade value
 	 */
 	public float getMaxGrade() {
-		// to be added later
-		return 0;
+		float maxVal = gradeValsList.get(numStudents - 1); // last in the sorted gradeValsList
+		return maxVal;
 	}
 	/***
 	 * @param none
 	 * @return Average of grades
 	 */
 	public float getAvr() {
-		// to be added later
-		return 0;
+		if (numStudents > 0) {
+			float sum = 0;
+			for (int i = 0; i < numStudents; i++) {
+				sum += gradeValsList.get(i);
+			}
+			return sum/numStudents;
+		} else {
+			return 0;
+		}
 	}
 	/***
 	 * @param none
 	 * @return Number of students passing the course
 	 */
-	int countNumPass() {
-		// to be added later
-		return 0;
+	public int countNumPass() {
+		int numPass = 0;
+		for (int i = 0; i < numStudents; i++) {
+			if (gradeValsList.get(i) >= 5.0) {
+				numPass++;
+			}
+		}
+		return numPass;
 	}
 	/***
 	 * @param none
 	 * @return Number of student failed the course
 	 */
-	int countNumFailed() {
-		// to be added later
-		return 0;
+	public int countNumFailed() {
+		int numFailed = 0;
+		for (int i = 0; i < numStudents; i++) {
+			if (gradeValsList.get(i) < 5.0) {
+				numFailed++;
+			}
+		}
+		return numFailed;
 	}
 }

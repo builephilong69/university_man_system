@@ -15,7 +15,7 @@ Applying design from RealWorld: the core project will be placed inside `src/`, f
 4. `resources/`: storing SQL schemas and database-related resources.
 ---
 ## Class Diagram
-![java-oop-uml](https://user-images.githubusercontent.com/33834474/145139210-6b56b1a4-1c06-4db3-a535-92702e52c676.jpg)
+![java-oop-uml](https://user-images.githubusercontent.com/80462415/145701695-2ea2f4d7-73be-4921-9a28-005d5fc429e9.png)
 ---
 ## Application's Usecase diagram
 ![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)

@@ -15,9 +15,9 @@ class PersonalInformation {
     // constructors
     protected PersonalInformation(String username) {
     	UserDBUtilities dbconnector = new UserDBUtilities();
-		dbconnector.connect();
-		Hashtable<String, String> info = dbconnector.getPersonalInfo(username);
-		this.full_name = info.get("Full name");
+	dbconnector.connect();
+	Hashtable<String, String> info = dbconnector.getPersonalInfo(username);
+	this.full_name = info.get("Full name");
         this.role = info.get("Role");
         if (info.get("Date of birth") != "unknown") {
         	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -28,7 +28,7 @@ class PersonalInformation {
         }
         this.placeOfBirth = info.get("Place of birth");
         this.ssn = info.get("SSN");
-		dbconnector.disconnect();
+	dbconnector.disconnect();
     }
     //methods
     /***

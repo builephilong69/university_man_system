@@ -1,17 +1,27 @@
-package USER;
-import java.util.Date;
+package User;
+
+
+import java.util.Hashtable;
+
+import GradeUtilities.Record;
+import sqlDBConnection.UserDBUtilities;
 
 public class Student extends User {
     // data attributes
     private String program_id;
     private String intake;
     private Record record;
+
     // constructors
-    public Student(String program_id, String intake, Record record,String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
-        this.program_id = program_id;
-        this.intake = intake;
-        this.record = record;
-        this.info = new Personal_information(name, role, dateOfBirth, placeOfBirth, ssn);
+    public Student(String username,String program_id, String intake) {
+        super(username);
+        UserDBUtilities dbconnector = new UserDBUtilities();
+        dbconnector.connect();
+        Hashtable<String,String> student_info  = dbconnector.getStudentInfo(username);
+        this.program_id = student_info.get("Program");
+        this.intake= student_info.get("Intake");
+        dbconnector.disconnect();
+        this.record = new Record(username);
     }
     //methods
 
@@ -22,6 +32,7 @@ public class Student extends User {
     @Override
     public void getPersonalInfo() {
         // TODO Auto-generated method stub
+
         
     }
 
@@ -29,7 +40,9 @@ public class Student extends User {
 	 * @param none
 	 * @return none; print to the console Record
 	 */
-    public void viewRecord(){}
+    public void viewRecord(){
+        record.printRecord();
+    }
 
     /***
 	 * @param none

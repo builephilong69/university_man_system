@@ -13,22 +13,26 @@ class PersonalInformation {
     private String placeOfBirth;
     private String ssn;
     // constructors
+    public PersonalInformation(){
+
+    }
+
     protected PersonalInformation(String username) {
-    	UserDBUtilities dbconnector = new UserDBUtilities();
-	dbconnector.connect();
-	Hashtable<String, String> info = dbconnector.getPersonalInfo(username);
-	this.full_name = info.get("Full name");
+        UserDBUtilities dbconnector = new UserDBUtilities();
+        dbconnector.connect();
+        Hashtable<String, String> info = dbconnector.getPersonalInfo(username);
+        this.full_name = info.get("Full name");
         this.role = info.get("Role");
         if (info.get("Date of birth") != "unknown") {
-        	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        	String infoDOB = info.get("Date of birth");
-        	this.dateOfBirth = LocalDate.parse(infoDOB, formatter);
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String infoDOB = info.get("Date of birth");
+                this.dateOfBirth = LocalDate.parse(infoDOB, formatter);
         } else {
-        	dateOfBirth = LocalDate.of(0, 1, 1); // set to default
+                dateOfBirth = LocalDate.of(0, 1, 1); // set to default
         }
         this.placeOfBirth = info.get("Place of birth");
         this.ssn = info.get("SSN");
-	dbconnector.disconnect();
+        dbconnector.disconnect();
     }
     //methods
     /***

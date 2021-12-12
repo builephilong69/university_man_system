@@ -1,18 +1,19 @@
 /***
  * An instances of this class represent an Assistant in the system
  */
-package USER;
+package User;
 import java.util.Date;
+
+import GradeUtilities.Course;
+
 
 public class Assistant extends User {
     // data attributes
-    private String faculty_id;
-    private String[] program_id;
+
     // contructors
-    public Assistant(String faculty_id, String[] program_id,String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
-        this.faculty_id = faculty_id;
-        this.program_id = program_id;
-        this.info = new Personal_information(name, role, dateOfBirth, placeOfBirth, ssn)
+    public Assistant(String username) {
+        super(username);
+
     }
     // methods
     /***
@@ -21,7 +22,8 @@ public class Assistant extends User {
 	 */
     @Override
     public void getPersonalInfo() {
-        // TODO Auto-generated method stub
+        System.out.println("Program Assistant: "+this.info.getFullName());
+        this.info.getPersonalInfo();
         
     }
     /***
@@ -29,7 +31,7 @@ public class Assistant extends User {
 	 * @return none , insert the grade of a student
 	 */
     public void insertGrade(String student_id,String course_id,float Grade){
-
+        
     }
     
     /***
@@ -46,6 +48,7 @@ public class Assistant extends User {
 	 * @return A student's record
 	 */
     private Record getStudentRecord(String student_id){
+        return null;
         //to be added later
     }
 
@@ -62,6 +65,7 @@ public class Assistant extends User {
 	 * @return Course summary
 	 */
     private Course getCourseSummary(String course_id){
+        return null;
 
     } 
 

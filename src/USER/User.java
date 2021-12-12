@@ -1,11 +1,16 @@
-package USER;
+package User;
 
 abstract public class User {
     // data attributes
     protected String username;
     protected String password;
-    protected Personal_information info;
+    protected PersonalInformation info;
     // methods
+
+    public User(String username) {
+        this.username = username;
+        this.info = new PersonalInformation(username);
+    }
 
     /***
 	 * @param (user_name,password)

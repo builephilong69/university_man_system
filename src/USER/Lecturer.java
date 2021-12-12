@@ -1,15 +1,16 @@
-package USER;
-import java.util.Date;
+package User;
+
+import GradeUtilities.*;
 
 public class Lecturer extends User {
     // data attributes
-    private String faculty_id;
+    
+    
     
     
     // constructors
-    public Lecturer(String faculty_id,String name, String role, Date dateOfBirth, String placeOfBirth, String ssn) {
-        this.faculty_id = faculty_id;
-        this.info = new Personal_information(name, role, dateOfBirth, placeOfBirth, ssn);
+    public Lecturer(String username) {
+        super(username);
     }
     // methods
     /***
@@ -18,14 +19,16 @@ public class Lecturer extends User {
 	 */
     @Override
     public void getPersonalInfo() {
-        // TODO Auto-generated method stub
-        
+        System.out.println("Lecturer: "+this.info.getFullName());
+        this.info.getPersonalInfo();
     }
     /***
 	 * @param course_id
 	 * @return Course summary
 	 */
-    private Course getCourseSummary(String course_id){
+    public Course getCourseSummary(String course_id){
+        Course a_course = new Course(course_id);
+        return a_course;
 
     }
     
@@ -35,7 +38,9 @@ public class Lecturer extends User {
 	 */
     public void printCourseSummary(String course_id)
     {
-
+        Course a_course = this.getCourseSummary(course_id);
+        String course_info = a_course.getCourseInfo();
+        System.out.println(course_info);
     }
 
 }

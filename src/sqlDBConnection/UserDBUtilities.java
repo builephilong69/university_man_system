@@ -156,4 +156,29 @@ public class UserDBUtilities extends DBConnector{
     		return 1;
     	}
     }
+    /***
+     * Login checking
+     * @param username, pw
+     * @return 0 if matched, 1 if mismatched
+     */
+    public int login(String username, String pw) {
+    	try {
+    		Statement statement = connector.createStatement();
+    		ResultSet results = statement.executeQuery("SELECT pw FROM authentication WHERE username='" + username + "'");
+    		
+    		results.next();
+    		String pwDB = results.getString("pw");
+    		if (pwDB.equals(pw)) {
+    			System.out.println("Successfully login.");
+    			return 0;
+    		} else {
+    			System.out.println("Wrong password.");
+    			return 1;
+    		}
+    	} catch (SQLException e) {
+    		System.out.println("Username does not exist.");
+    		e.printStackTrace();
+    		return 1;
+    	}
+    }
 }

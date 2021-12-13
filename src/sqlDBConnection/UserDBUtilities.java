@@ -120,5 +120,40 @@ public class UserDBUtilities extends DBConnector{
 		}
 		return info;
     }
-	
+	/***
+	 * Intended client: assistant;
+	 * Insert new entry in the grade table
+	 * @param student_id, course_id, grade value
+	 * @return 0 if successfully done, 1 if unsuccessfully done
+	 */
+    public int insertGrade(String student_id, String course_id, float grade) {
+    	try {
+    		Statement statement = connector.createStatement();
+    	    statement.executeUpdate("INSERT INTO grade (course_id, student_username, grade) VALUES ('" + course_id + "', '" + student_id + "', " + grade + ")");
+    	    System.out.println("Successfull insertion.");
+    		return 0;
+    	} catch (SQLException e) {
+    		System.out.println("Unsuccessful insertion.");
+    		e.printStackTrace();
+    		return 0;
+    	}
+    }
+    /***
+	 * Intended client: assistant;
+	 * Modify one grade entry in the grade table
+	 * @param student_id, course_id, grade value
+	 * @return 0 if successfully done, 1 if unsuccessfully done
+	 */
+    public int modifyGrade(String student_id, String course_id, float grade) {
+    	try {
+    		Statement statement = connector.createStatement();
+    	    statement.executeUpdate("UPDATE grade SET grade=" + grade + " WHERE course_id='" + course_id + "' AND student_username='" + student_id + "'");
+    	    System.out.println("Successful modification.");
+    		return 0;
+    	} catch (SQLException e) {
+    		System.out.println("Unsuccessful modification.");
+    		e.printStackTrace();
+    		return 1;
+    	}
+    }
 }

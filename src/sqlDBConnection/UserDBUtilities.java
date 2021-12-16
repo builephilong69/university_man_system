@@ -156,6 +156,30 @@ public class UserDBUtilities extends DBConnector{
     		return 1;
     	}
     }
+	/***
+	 * Intended client: Lecturer;
+	 * @param lecturer_id
+	 * @return a list of course  id that the lecturer is in
+	 */
+	public ArrayList<String> getOwnCourse(String lecturer_id)
+	{
+		ArrayList<String> array_list = new ArrayList<String>();
+		try {
+			Statement statement = connector.createStatement();
+			ResultSet results = statement.executeQuery("SELECT * FROM course_description WHERE lecturer_username='"+lecturer_id+"'");
+			while(results.next())
+			{
+				String course_id = results.getString("course_id");
+				array_list.add(course_id);
+			}
+		}catch (SQLException e)
+		{
+			System.out.println("Fetching failed");
+			e.printStackTrace();
+		}
+		return array_list;
+	}
+	
     /***
      * Login checking
      * @param username, pw

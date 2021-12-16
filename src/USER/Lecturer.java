@@ -1,6 +1,9 @@
 package User;
 
+import java.util.ArrayList;
+
 import GradeUtilities.*;
+import sqlDBConnection.UserDBUtilities;
 
 public class Lecturer extends User {
     // data attributes
@@ -22,25 +25,55 @@ public class Lecturer extends User {
         System.out.println("Lecturer: "+this.info.getFullName());
         this.info.getPersonalInfo();
     }
-    /***
-	 * @param course_id
-	 * @return Course summary
-	 */
-    public Course getCourseSummary(String course_id){
-        Course a_course = new Course(course_id);
-        return a_course;
+    /**
+     * 
+     * @return Array list of course_id taught by the lecturer
+     */
+    private ArrayList<String> getOwnCourse()
+    {
+        ArrayList<String> result = new ArrayList<String>();
+        UserDBUtilities connector = new UserDBUtilities();
+        connector.connect();
+        result =connector.getOwnCourse(this.username);
+        connector.disconnect();
+        return result;
+    }
+    /**
+     * 
+     * @param none
+     * @return none, print to consle the Courses' id that lecturer teach 
+     */
+    public void printOwnCourse()
+    {
+        ArrayList<String> courseList = this.getOwnCourse();
+        System.out.println("All the course taught by   "+ this.username);
+        for(String i : courseList)
+        {
+            System.out.println(i);
+        }
 
+    }
+
+
+   
+    /***
+	 * @param courseIndex
+	 * @return the summary of the course taught by that lecturer
+	 */
+    public String getCourseSummary(int courseIndex){
+        ArrayList<String> courseList = this.getOwnCourse();
+        Course course = new Course(courseList.get(courseIndex));
+        return course.getCourseInfo();
     }
     
     /***
 	 * @param course_id
 	 * @return none; print to the console the lecturer's Course summary
 	 */
-    public void printCourseSummary(String course_id)
+    public void printCourseSummary(int courseIndex)
     {
-        Course a_course = this.getCourseSummary(course_id);
-        String course_info = a_course.getCourseInfo();
-        System.out.println(course_info);
+        String summary = getCourseSummary(courseIndex);
+        System.out.println(summary);
     }
 
 }

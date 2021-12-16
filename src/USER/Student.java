@@ -13,7 +13,7 @@ public class Student extends User {
     private Record record;
 
     // constructors
-    public Student(String username,String program_id, String intake) {
+    public Student(String username) {
         super(username);
         UserDBUtilities dbconnector = new UserDBUtilities();
         dbconnector.connect();
@@ -23,6 +23,7 @@ public class Student extends User {
         dbconnector.disconnect();
         this.record = new Record(username);
     }
+
     //methods
 
     /***
@@ -31,17 +32,27 @@ public class Student extends User {
 	 */
     @Override
     public void getPersonalInfo() {
-        // TODO Auto-generated method stub
-
         
+        System.out.println("Student: "+this.info.getFullName()+"  - Program: "+this.program_id+" - Intake: "+this.intake);
+        this.info.getPersonalInfo();
+        
+    }
+
+    /***
+	 * @param none
+	 * @return Record
+	 */
+    public Record getRecord()
+    {
+        return this.record;
     }
 
     /***
 	 * @param none
 	 * @return none; print to the console Record
 	 */
-    public void viewRecord(){
-        record.printRecord();
+    public void printRecord(){
+        this.record.printRecord();
     }
 
     /***

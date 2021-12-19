@@ -10,10 +10,10 @@ import sqlDBConnection.GradeDBUtilities;
 public class Course {
 	// data attributes
 	private String course_id;
-	private Hashtable<String, String> courseInfo;
-	private Hashtable<String, Float> gradesList;
+	private Hashtable<String, String> courseInfo; // {("course_name", "name"),("program", "prog_name"),(),...}
+	private Hashtable<String, Float> gradesList; // {("student1", grade1), ("student2", grade2),...}
 	private int numStudents;
-	private ArrayList<Float> gradeValsList; // for computing some statistics of the course's grades, no need to link to student id 
+	private ArrayList<Float> gradeValsList; // grade values only, in ascending order (sorted in the constructor), for computing some statistics of the course's grades, no need to link to student id 
 	
 	// constructor
 	public Course(String course_id){
@@ -29,6 +29,7 @@ public class Course {
 		for(Map.Entry<String, Float> entry: gradesList.entrySet()){
 			gradeValsList.add(entry.getValue());
 		}
+		// sort the grade list in ascending order 
 		gradeValsList.sort((Float x, Float y) -> x.compareTo(y)); // lamda function pass as argument
 		dbconnector.disconnect();
 	}
@@ -53,20 +54,36 @@ public class Course {
 	}
 	/***
 	 * @param none
+	 * @return string of containing all student: corresponding grade
+	 */
+	public String getStudentsWithGrades() {
+		String result = courseInfo.get("Course name") + " in semester " + courseInfo.get("Semester") + "\n";
+		result = result + String.format("%-40s | %-5s\n", "Student ID", "Grade");
+		result = result + (new String(new char[48])).replace('\0', '-') + "\n";
+		for(Map.Entry<String, Float> entry: gradesList.entrySet()) {
+			result = result + String.format("%-40s | %5.1f\n", entry.getKey(), entry.getValue());
+		}
+		return result;
+	}
+	/***
+	 * @param none
 	 * @return Course overall information
 	 */
 	public String getCourseInfo() {
-		return courseInfo.toString();
+		String result = "";
+		for(Map.Entry<String, String> entry: courseInfo.entrySet()) {
+			result.concat(String.format("%-11s : %-100s\n", entry.getKey(), entry.getValue()));
+		}
+		return result;
 	}
+	
 	/***
 	 * @param none
 	 * @return Number of students taking the exam for this course
 	 */
 	public int getNumStudents() {
 		return numStudents;
-	}
-	
-	
+	}	
 	/***
 	 * @param none
 	 * @return Minimum grade value

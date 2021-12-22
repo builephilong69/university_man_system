@@ -40,15 +40,6 @@ public class Student extends User {
 
     /***
 	 * @param none
-	 * @return Record
-	 */
-    public Record getRecord()
-    {
-        return this.record;
-    }
-
-    /***
-	 * @param none
 	 * @return none; print to the console Record
 	 */
     public void printRecord(){
@@ -57,8 +48,8 @@ public class Student extends User {
 
     /***
 	 * @param none
-	 * @return none; export record to pdf
+	 * @return none; export record to txt
 	 */
-    public void exportRecordToPDF(){}
+    public void exportRecordToTXT(){}
     
 }

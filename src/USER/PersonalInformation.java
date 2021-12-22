@@ -13,10 +13,6 @@ class PersonalInformation {
     private String placeOfBirth;
     private String ssn;
     // constructors
-    public PersonalInformation(){
-
-    }
-
     protected PersonalInformation(String username) {
         UserDBUtilities dbconnector = new UserDBUtilities();
         dbconnector.connect();

@@ -1,3 +1,6 @@
+/***
+ * Intended clients: main (login() function), all other classes in User package
+ */
 package User;
 
 import sqlDBConnection.UserDBUtilities;
@@ -21,5 +24,5 @@ public interface UserFunctions {
 		return result;
 	};
 	public void logout();
-	void getPersonalInfo();
+	public void getPersonalInfo();
 }

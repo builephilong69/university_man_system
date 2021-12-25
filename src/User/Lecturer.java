@@ -10,7 +10,7 @@ import GradeUtilities.*;
 import sqlDBConnection.UserDBUtilities;
 
 public class Lecturer extends User {
-	private Hashtable<String, String> lecturerInfo;
+    private Hashtable<String, String> lecturerInfo;
     // constructors
     public Lecturer(String username) {
         super(username);
@@ -26,7 +26,7 @@ public class Lecturer extends User {
 	 */
     @Override
     public void getPersonalInfo() {
-    	System.out.println("Full name     : " + lecturerInfo.get("Title") + ". " +info.getFullName());
+    	System.out.println("Full name     : " + lecturerInfo.get("Title") + " " + info.getFullName());
     	System.out.println("Date of birth : " + info.getDateOfBirth().toString());
     	System.out.println("Place of birth: " + info.getPlaceOfBirth());
     	System.out.println("SSN           : " + info.getSSN());
@@ -53,7 +53,7 @@ public class Lecturer extends User {
     public void printOwnCourse()
     {
         ArrayList<String> courseList = this.getOwnCourse();
-        System.out.println("All the course taught by   "+ this.username);
+        System.out.println("All the courses taught by "+ lecturerInfo.get("Title") + " " + info.getFullName());
         for(String i : courseList)
         {
             System.out.println(i);

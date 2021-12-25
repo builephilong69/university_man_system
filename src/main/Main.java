@@ -16,20 +16,22 @@ public class Main {
 			role = UserFunctions.login(username, pw);
 			// instantiate a new user of type Assistant or Lecturer or Student accordingly
 			if (role.equals("assistant")) { 
-				Assistant assistant = new Assistant(username);
+				Assistant assistant = new Assistant(username); // e.g. (trang.nguyenthithuy, programAssistant)
 				assistant.getPersonalInfo();
 				assistant.printStudentRecord("11111");
 				assistant.printCourseSummary("CSEW2021M13");
 				assistant.logout();
 			}
 			else if (role.equals("lecturer")) {
-				Lecturer lecturer = new Lecturer(username);
+				Lecturer lecturer = new Lecturer(username); // e.g. (ngoc.tranhong, cseLecturer1)
 				lecturer.getPersonalInfo();
+				lecturer.printOwnCourse();
 				lecturer.logout();
 			}
 			else if (role.equals("student")){
-				Student student = new Student(username);
+				Student student = new Student(username); // e.g. (11111, cseStudent1)
 				student.getPersonalInfo();
+				student.printRecord();
 				student.logout();
 			}
 		

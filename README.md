@@ -9,7 +9,7 @@ General Information:
 ## Code Structure
 
 The core project will be placed inside `src/`, functioning as follow:
-1. `Main/`: the main source file.
+1. `main/`: the main source file.
 2. `GradeUtilities/`: java codes for Course and Record classes
 3. `User`: java codes for User, Assistant, Lecturer, Student classes and UserFunctions interface 
 4. `sqlDBConnection/`: java codes providing functions that need direct interaction with DB

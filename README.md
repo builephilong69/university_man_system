@@ -16,7 +16,7 @@ The core project will be placed inside `src/`, functioning as follow:
 5. `DB/`: storing SQL schemas and database-related resources.
 ---
 ## Class Diagram
-![java-oop-uml](https://user-images.githubusercontent.com/80462415/145701695-2ea2f4d7-73be-4921-9a28-005d5fc429e9.png)
+![java-oop-uml](https://user-images.githubusercontent.com/33834474/147383059-c1745f51-52b7-40ce-8419-b518630d5751.jpg)
 ---
 ## Application's Usecase diagram
 ![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
@@ -26,6 +26,7 @@ The core project will be placed inside `src/`, functioning as follow:
 ---
 ## Application's Activity diagram
 ![java-activity-diagram](https://user-images.githubusercontent.com/80462415/143812548-2c4eb2e1-f106-42c8-bc53-92b12af4d19d.png)
+
 
 
 

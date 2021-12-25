@@ -72,7 +72,7 @@ public class Course {
 	public String getCourseInfo() {
 		String result = "";
 		for(Map.Entry<String, String> entry: courseInfo.entrySet()) {
-			result.concat(String.format("%-11s : %-100s\n", entry.getKey(), entry.getValue()));
+			result = result + String.format("%-11s : %-100s\n", entry.getKey(), entry.getValue());
 		}
 		return result;
 	}
@@ -142,3 +142,4 @@ public class Course {
 		return numFailed;
 	}
 }
+

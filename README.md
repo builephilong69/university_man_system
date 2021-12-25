@@ -8,11 +8,12 @@ General Information:
 ---
 ## Code Structure
 
-Applying design from RealWorld: the core project will be placed inside `src/`, functioning as follow:
-1. `University_main.java`: the main application file.
-2. `domain/`: storing the folders, each represent a class. 
-3. `application/`: API for accessing the application. Might terminate if exceeding the project's scope.
-4. `resources/`: storing SQL schemas and database-related resources.
+The core project will be placed inside `src/`, functioning as follow:
+1. `Main/`: the main source file.
+2. `GradeUtilities/`: java codes for Course and Record classes
+3. `User`: java codes for User, Assistant, Lecturer, Student classes and UserFunctions interface 
+4. `sqlDBConnection/`: java codes providing functions that need direct interaction with DB
+5. `DB/`: storing SQL schemas and database-related resources.
 ---
 ## Class Diagram
 ![java-oop-uml](https://user-images.githubusercontent.com/80462415/145701695-2ea2f4d7-73be-4921-9a28-005d5fc429e9.png)

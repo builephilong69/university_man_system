@@ -1,7 +1,7 @@
 /* insert data for appplication testing */
 INSERT INTO authentication (username, pw, full_name, uniRole) VALUES ('ngoc.tranhong', 'cseLecturer1', 'Tran Hong Ngoc', 'lecturer');
 INSERT INTO authentication (username, pw, full_name, uniRole) VALUES ('duc.nguyentuan', 'cseLecturer2', 'Nguyen Tuan Duc', 'lecturer');
-INSERT INTO authentication (username, pw, full_name, uniRole) VALUES ('trang.nguyenthithuy', 'programAssitant', 'Nguyen Thi Thuy Trang', 'assistant');
+INSERT INTO authentication (username, pw, full_name, uniRole) VALUES ('trang.nguyenthithuy', 'programAssistant', 'Nguyen Thi Thuy Trang', 'assistant');
 INSERT INTO authentication (username, pw, full_name, ssn, place_of_birth, uniRole) VALUES ('11111', 'cseStudent1', 'Nguyen Van A', '111111111', 'Ha Noi', 'student');
 INSERT INTO authentication (username, pw, full_name, ssn, date_of_birth, place_of_birth, uniRole) VALUES ('22222', 'cseStudent2', 'Tran Thi B', '222222222', str_to_date('2001-01-01', '%Y-%m-%d'), 'TP Ho Chi Minh', 'student');
 

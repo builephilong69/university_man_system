@@ -16,16 +16,13 @@ The core project will be placed inside `src/`, functioning as follow:
 5. `DB/`: storing SQL schemas and database-related resources.
 ---
 ## Class Diagram
-![java-oop-uml](https://user-images.githubusercontent.com/33834474/147383211-e9945320-2063-4d8e-8bb8-2630771328b0.jpg)
+![java-oop-uml](https://user-images.githubusercontent.com/33834474/148158073-a3998a32-0ced-4483-a189-1126b283f34c.jpg)
 ---
-## Application's Usecase diagram
-![university](https://user-images.githubusercontent.com/80462415/143812483-bf6586cf-0956-4651-bbcf-9554a21b3eed.png)
----
-## Relational mappings
+## Database schema
 ![gradeSystemDBSchemaOverview](https://user-images.githubusercontent.com/33834474/145151507-f9a964d9-34ba-4c11-a1f2-383793f8a57d.png)
 ---
 ## Application's Activity diagram
-![java-activity-diagram](https://user-images.githubusercontent.com/80462415/143812548-2c4eb2e1-f106-42c8-bc53-92b12af4d19d.png)
+![java-activity-diagram](https![java-activity-diagram-new](https://user-images.githubusercontent.com/33834474/148157990-953bbcc6-2b51-47ce-94c0-404224b20b36.png)
 
 
 

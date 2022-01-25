@@ -50,6 +50,7 @@ public class Student extends User {
 	 * @param none
 	 * @return none; export record to txt
 	 */
-    public void exportRecordToTXT(){}
-    
+    public void exportRecordToTXT(){
+	    this.record.toTXT();
+    }   
 }

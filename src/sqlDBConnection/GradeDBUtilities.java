@@ -69,6 +69,7 @@ public class GradeDBUtilities extends DBConnector{
     		String course_name = results.getString("course_name");
     		String program = results.getString("program");
     		String lecturer_username = results.getString("lecturer_username");
+    		String semester = results.getString("semester");
     		// get lecturer name and title
     		ResultSet rs = statement.executeQuery("SELECT * FROM authentication A JOIN lecturer L On (A.username=L.username) WHERE A.username='" + lecturer_username + "'");
     		rs.next();
@@ -77,6 +78,7 @@ public class GradeDBUtilities extends DBConnector{
     		
     		courseInfo.put("Course name", course_name);
     		courseInfo.put("Program", program);
+    		courseInfo.put("Semester", semester);
     		courseInfo.put("Instructor", lecturer_title + " "+ lecturer_name);
     	} catch (SQLException e){
     		System.out.println("Fetching failed.");

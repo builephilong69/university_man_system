@@ -1,0 +1,24 @@
+Here are the installing step for the University Management DesktopApplication:
+
+Step 1: Extract the archived file (you will see: |university_man_ui| file, |new_internal_code| folder, and this instruction file)
+Step 2: Download Gradle binary file from https://gradle.org/releases/ (any version will work. Prerequisites: Gradle runs on all major operating systems and requires only a Java Development Kit version 8 or higher to run.). Add Grade bin file to environment variable PATH. For more information, please follow instructions in this site: https://docs.gradle.org/current/userguide/installation.html#installation
+Step 3: Open Eclipse -> File -> Import -> Gradle -> Existing Gradle Project -> Browse to the folder |new_internal_code| -> Finish
+Step 4: go to "...\new_internal_code\app\src\main\java\DB" and run 3 sql files, and create your SQL server.
+Step 5: go to "...\new_internal_code\app\src\main\java\sqlDBConnection\DBconnector.java" to modify your SQL server settings. You can change the URL, username, and password in that file.
+Step 6: run the file ...\new_internal_code\gradlew.bat to run the http server.
+Step 7: from the |Gradle Tasks| panel, double click on folder |application| -> run
+Step 8: run the |university_man_ui|, and try to login by these accounts (in side the brackets ""):
+
+username:"11111", password:"cseStudent1"
+
+username:"22222", password:"cseStudent2"
+
+username:"duc.nguyentuan", password:"cseLecturer2"
+
+username:"ngoc.tranhong", password:"cseLecturer1"
+
+username:"trang.nguyenthithuy", password:"programAssistant" (or "programAssitant")
+
+
+-----------------------------------------------------------------------------------
+
